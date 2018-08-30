@@ -1,5 +1,5 @@
 export default {
   created() {
-    console.log('This is mixin component create');
+    // console.log('This is mixin component create');
   },
 };
