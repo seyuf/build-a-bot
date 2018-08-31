@@ -9,10 +9,18 @@
               Build a bot
             </router-link>
           </li>
-            <li class="nav-item">
+          <li class="nav-item">
             <router-link exact class="nav-link" :to="{name: 'Build'}">
               Build
             </router-link>
+          </li>
+          <li class="nav-item cart">
+            <router-link exact class="nav-link" to="/cart">
+              Cart
+            </router-link>
+            <div class="cart-items">
+              {{cart.length}}
+            </div>
           </li>
         </ul>
       </nav>
@@ -32,6 +40,11 @@
 
 export default {
   name: 'app',
+  computed: {
+    cart() {
+      return this.$store.state.cart;
+    },
+  },
 };
 </script>
 
@@ -97,5 +110,21 @@ export default {
     background-color: #aaa;
     width: 100px;
     min-height: 300px;
+  }
+  .nav-item.cart {
+    position: relative;
+    margin-left: auto;
+    border-right: none;
+  }
+  .cart-items{
+    position: absolute;
+    top: -5px;
+    right: -9px;
+    font-size: 18px;
+    width: 20px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 100px;
+    background-color: mediumseagreen;
   }
 </style>
